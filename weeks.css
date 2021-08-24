@@ -1,0 +1,61 @@
+code{
+    color: rgb(53, 53, 47);
+}
+.comment{
+    color:green;
+    display: inline;
+}
+table{
+    width: 100%;
+    border-radius: 1em;
+}
+
+thead{
+    background-color: rgb(112, 86, 155);
+    color: aliceblue;
+    text-align: center;
+}
+tbody{
+    background-color: rgb(195, 181, 240);
+}
+td{
+    border-radius: 0.5em;
+    width: 50%;
+    align-items: center;
+}
+.three{
+    width: 33%;
+}
+td p{
+    text-align: center; 
+}
+td code{
+    display: block;
+    padding: 1em;
+    margin: auto;
+    width: fit-content;
+    align-self: center;
+}
+.codeLine{
+    background-color: rgb(195, 181, 240);
+    display: inline-block;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 0.5em;
+}
+.codeContainer{
+    background-color: rgb(195, 181, 240);
+    width: fit-content;
+    padding: 1%;
+    border-radius: 10%;
+}
+figcaption{
+    text-align: center;
+}
+.box{
+    background-color: rgb(195, 181, 240);
+}
+.innerBox{
+    display: inline-block;
+    width: 45%;
+}

@@ -3,14 +3,33 @@
     <head>
         <meta charset="UTF-8">
         <title>First formal html practice</title>
-
+        <!--link gives relationhsips-->
+        <link rel="icon" type="image/png" href="imgs/coffee.png">
+        <!--link used to get awesome icons-->
+        <script src="https://kit.fontawesome.com/953c882221.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <header><p>Thinking on header</p></header>
         <h1>First lines</h1>
         <p>Hi its me</p>
+        <figure>
+            <img src="imgs/jmeme.jpg" 
+            alt="java script meme" 
+            title="Java script meme Title"
+            width="500px">
+            <figcaption>Image with context</figcaption>
+        </figure>
         <footer>
-            <p>Thinking on footer</p>
+            <p>Thinking on footer <i class="fas fa-copyright"></i>
+                <i class="fas fa-copyright fa-sm"></i>
+                <i class="fas fa-copyright fa-4x"></i></p>
+            <!--Aria label used for accesibility-->
+            <a href="https://www.google.com" target="_blank"
+            aria-label="Google"><i class="fab fa-google"></i></p></a>
+            <!--anchors targets
+            _slef=same page,
+            _blank=new tab,
+            _top,_parent-->
         </footer>
     </body>
 </html>

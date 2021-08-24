@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title will be removed</title>
+        <!--link gives relationhsips-->
+        <link rel="icon" type="image/png" href="imgs/coffee.png">
+        <!--link used to get awesome icons-->
+        <script src="https://kit.fontawesome.com/953c882221.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="weeks.css">
+    </head>
+    <body>
+        <header><p>Yasuo Header</p></header>
+        <!--Starts journal week 21 body-->
+        <h1>Why Is Semantic Code Important?</h1>
+        <a href="https://boagworld.com/dev/semantic-code-what-why-how/" target="_blank">Link</a>
+        <p>One reason why semantic code is essential is that without explaining what a piece of content is, a computer has no way of knowing. The ability of a machine to understand your content is vital for two main reasons:</p>
+        <p>Many visually impaired people rely on speech browsers to read pages back to them. These programs cannot interpret pages very well unless the website clearly explains them. In other words, semantic code aids accessibility</p>
+        <p>Search engines need to understand what your content is about to rank you properly on search engines. Therefore, semantic code tends to improve your placement on search engines, as it is easier for them to understand. </p>
+
+        <h1>The Useful SASS Features in a Nutshell — SASS Cheatsheet <a href="https://levelup.gitconnected.com/the-useful-sass-features-in-a-nutshell-sass-cheatsheet-c5767340d43b">link</a></h1>
+        <p>You can use the variables feature in SASS to avoid writing and modifying repetitive style properties. Let’s consider you have a specific text colour as #000 to be used in multiple areas across your website’s elements. You can declare a variable in the following manner:</p>       
+        <code class="codeLine">$text-color: #000</code>
+        <p>To use the property, use the following syntax anywhere in you SCSS file:</p>
+        <code class="codeLine">color: $text-color</code>
+        <p>You can define the common properties in a separate file and use the import statement to use them in your actual stylesheet.</p>
+        <figure>
+            <table >
+                <thead>
+                    <td>_variables.scss</td>
+                    <td>_stye.css</td>
+                </thead>
+                <tbody>
+                    <td>
+                        <code>
+                            <p class="comment">//== Text Colors ==<br></p>
+                            $primary-text:lighten(black,20%);<br>
+                            $secondary-text:gray;<br>
+                            <p class="comment">//== Theme BGS ==<br></p>
+                            $primary-bg:rgb(114,63,63);<br>
+                            <p class="comment">//== Theme BGS ==<br></p>
+                            $standard-border: 1px solid lightgray;<br>
+                        </code>
+                    </td>
+                    <td>
+                        <code>
+                            <b>@import "variables"</b><br>
+                            body{<br>
+                            &emsp;margin:0;<br>
+                            &emsp;*{<br>
+                            &emsp;&emsp;color:$primary-text;<br>
+                            &emsp;&emsp;font-family:"Raleway",sans-serif;<br>
+                            &emsp;}<br>
+                            }<br>
+                        </code>
+                    </td>
+                </tbody>
+            </table>
+            <figcaption><p>Note: The <b>file name starts with an underscore</b>.
+                These files are known as partials in SASS.
+                The underscore indicates the SASS compiler that they do not contain any CSS style to be translated, only reusable variables or mixins defined.</p></figcaption>
+        </figure>
+        <h2>Mixins</h2>
+        <ul>
+            <li><p>Mixins are very useful to declare reusable styles for your application.</p></li>
+            <li><p>It is a good practice to store your mixins in one a separate file that do not contain any CSS declarations and use them using the Import statement.</p></li>
+        </ul>
+        <table >
+            <thead>
+                <td>Defining a mixing</td>
+                <td>Using a mixing</td>
+            </thead>
+            <tbody>
+                <td>
+                    <code>
+                        <b>@mixing</b> centered-container{<br>
+                            &emsp;display:flex;<br>
+                            &emsp;align-items:center;<br>
+                            &emsp;justify-content:center;<br>
+                            &emsp;background-color:black;<br>
+                        }
+                    </code>
+                </td>
+                <td>
+                    <code>
+                        .my-container{<br>
+                            &emsp;<b>@include</b> centered-container();<br>
+                        }
+                    </code>
+                </td>
+            </tbody>
+        </table>
+        <h3>Sending parameters</h3>
+        <table >
+            <thead>
+                <td>Defining a mixing with parameters</td>
+                <td>Using a mixing with parameters</td>
+            </thead>
+            <tbody>
+                <td>
+                    <code>
+                        @mixing standard-border<b>(<i>$radius</i>:4px,<i>$width</i>:1px)</b>{<br>
+                            &emsp;border-width:$width;<br>
+                            &emsp;border-color:black;<br>
+                            &emsp;border-radious:$radious;<br>
+                        }
+                    </code>
+                </td>
+                <td>
+                    <code>
+                        .my-container{<br>
+                            &emsp;@include standard-border<b>(<i>8px</i>,<i>0.5px</i>)</b><br>
+                        }
+                    </code>
+                </td>
+            </tbody>
+        </table>
+        <p>Here, 4px and 1px are the default values for border-radius and border-width respectively, just in case someone misses to pass the parameter</p>
+        <p>The parameters part can be skipped <b>if the default values are fine for you</b>.</p>
+        <table >
+            <thead>
+                <td colspan="2">Skipping parameters</td>
+            </thead>
+            <tbody>
+                <td>
+                    <code>
+                        .my-container{<br>
+                            &emsp;@include standard-border<b>(<i>8px</i>)</b><br>
+                        }
+                    </code>
+                    <p>You can pass the border-radius and skip the other ones as this is the first parameter</p>
+                </td>
+                <td>
+                    <code>
+                        .my-container{<br>
+                            &emsp;@include standard-border<b>(<i>$width: 2px</i>)</b><br>
+                        }
+                    </code>
+                    <p>Passing only $width parameter</p>
+                </td>
+            </tbody>
+        </table>
+        <h2>Nested Mixins</h2>
+        <table>
+            <tbody>
+                <td>
+                    <code>
+                        @mixing mixin-1{&nbsp;<br>
+                            &emsp;color:red;<br>
+                        }
+                    </code>
+                </td>
+                <td>
+                    <code>
+                        @mixing mixin-2{<br>
+                            &emsp;@include mixing-1;<br>
+                            &emsp;background-color:yellow;<br>
+                        }
+                    </code>
+                </td>
+            </tbody>
+        </table>
+        <h3>Mixins with content</h3>
+        <p>Mixins can also content some extra style/content that you might want to provide, denoted by the <code class="codeLine">@content</code> keyword.</p>
+        <table>
+            <tbody>
+                <td>
+                    <code>
+                        @mixing mixin-2{<br>
+                            &emsp;@include mixing-1;<br>
+                            &emsp;background-color:yellow;<br>
+                            &emsp;<b>@content</b>;<br>
+                        }
+                    </code>
+                </td>
+                <td>
+                    <code>
+                        .my-container{<br>
+                            &emsp;@include mixing-2;<br>
+                            &emsp;width:200px;<br>
+                        }
+                    </code>
+                </td>
+            </tbody>
+        </table>
+        <h2>Useful built-in functions in SASS</h2>
+        <ul>
+            <li>
+                <b>Lighten</b>:
+                Lighten a colour to the percentage specified.<br>
+                &emsp;<code class="codeLine">color: <b>ligthen</b>(color,percentage)</code>
+            </li>
+            <li>
+                <b>Darken</b>:
+                Darkens any colour to the specified percentage.<br>
+                &emsp;<code class="codeLine">color: <b>darken</b>(color,percentage)</code>
+            </li>
+            <li>
+                <b>Transparentize</b>:
+                Makes any colour transparent.<br>
+                &emsp;<code class="codeLine">color: <b>transparentize</b>(color,0-1 number)</code>
+            </li>
+        </ul>
+        <h2>Inheritance in SASS or the ‘Extends’ keyword</h2>
+        <p>You can inherit or extend the properties of any class or other selectors using the extends keyword in SASS.</p>
+        <table>
+            <tbody>
+                <td>
+                    <code>
+                        .commen-error{&emsp;<br>
+                            &emsp;color:yellow;<br>
+                        }
+                    </code>
+                </td>
+                <td>
+                    <code>
+                        .email-error{<br>
+                            &emsp;<b>@extend</b> .common-error<br>
+                            &emsp;font-size:10px;<br>
+                        }
+                    </code>
+                </td>
+            </tbody>
+        </table>
+        <h2>For loops and Each loops</h2>
+        <p>For loops in SASS can be used to <b>iterate through numbers.</b></p>
+        <table>
+            <thead>
+                <td colspan="2">For loop</td>
+            </thead>
+            <thead>
+                <td>Plain CSS</td>
+                <td>Using SASS</td>
+            </thead>
+            <tbody>
+                <td>
+                    <code>
+                        .col-1{<br>
+                        &emsp;width:100%<br>
+                        }<br>
+                        .col-2{<br>
+                            &emsp;width:50%<br>
+                        }<br>
+                        .col-3{<br>
+                            &emsp;width:33.33%<br>
+                        }<br>
+                        .col-4{<br>
+                            &emsp;width:25%<br>
+                        }<br>
+                    </code>
+                </td>
+                <td>
+                    <code>
+                        <b>@for</b><p class="comment"><b> $variable</b></p>
+                        <b>from</b><p class="comment"> 1 </p> <b>trhough</b>
+                        <p class="comment"> 4</p> {<br>
+                            &emsp;.col-<b>#</b>{<p class="comment"><b>$variable</b></p>}{<br>
+                            &emsp;&emsp;width:(100%/<p class="comment"><b>$variable</b></p>);<br>
+                            &emsp;}<br>
+                        }
+                    </code>
+                    <p><b>#</b> is used to convert the variable into part of the selector</p>
+                </td>
+            </tbody>
+        </table>
+        <p>Each loops in SASS can be used to iterate through Lists.
+            Lists in SASS are basically arrays of some values.
+            We can have a <b>list of strings/names</b> and traverse the same.
+            The syntax of each loop is little different from for loop.
+            It starts with <code class="codeLine">@each</code> keyword and used <code class="codeLine">in</code> instead of <b>through</b>.</p>
+        <table>
+            <thead>
+                <td colspan="2">Each loop</td>
+            </thead>
+            <thead>
+                <td>Plain CSS</td>
+                <td>Using SASS</td>
+            </thead>
+            <tbody>
+                <td>
+                    <code>
+                        .heading-red{<br>
+                        &emsp;color:red<br>
+                        }<br>
+                        .heading-blue{<br>
+                            &emsp;color:blue<br>
+                        }<br>
+                        .heading-green{<br>
+                            &emsp;color:green<br>
+                        }<br>
+                        .heading-yellow{<br>
+                            &emsp;color:yellow<br>
+                        }<br>
+                    </code>
+                </td>
+                <td>
+                    <code>
+                        <p class="comment" style="color: darkblue;">/*defining list*/</p><br>
+                        <p class="comment"><b>$variable</b></p>: red,blue,green,yellow;
+                        <br>
+                        <br>
+                        <p class="comment" style="color: darkblue;">/*Iterating*/</p><br>
+                        <b>@each </b><p class="comment"><b>$item_variable</b></p>
+                        <b>in </b><p class="comment"><b>$variable </b></p> {<br>
+                            &emsp;.heading-<b>#</b>{<p class="comment"><b>$item_variable</b></p>}{<br>
+                            &emsp;&emsp;color:<p class="comment"><b>$item_variable</b></p>);<br>
+                            &emsp;}<br>
+                        }
+                    </code>
+                    <p><b>#</b> is used to convert the item_variable into part of the selector</p>
+                </td>
+            </tbody>
+        </table>
+        <h2>Maps in SASS</h2>
+        <p>Maps is a data structure of key value pairs. You can iterate through maps using SASS.</p>
+        <table>
+            <thead>
+                <td>Plain CSS</td>
+                <td>Each loop traverse</td>
+            </thead>
+            <tbody>
+                <td>
+                    <code>
+                        .text-small{<br>
+                        &emsp;font-size:14px<br>
+                        }<br>
+                        .text-medium{<br>
+                            &emsp;font-size:18px<br>
+                        }<br>
+                        .text-large{<br>
+                            &emsp;font-size:24px<br>
+                        }<br>
+                    </code>
+                </td>
+                <td>
+                    <code>
+                        <p class="comment" style="color: darkblue;">/*defining list*/</p><br>
+                        <p class="comment"><b>$headers</b></p>: (small: 14px, medium: 18px, large: 24px);
+                        <br>
+                        <br>
+                        <p class="comment" style="color: darkblue;">/*Iterating*/</p><br>
+                        <b>@each </b><p class="comment"><b>$name, $size</b></p>
+                        <b>in </b><p class="comment"><b>$headers </b></p> {<br>
+                            &emsp;.text-<b>#</b>{<p class="comment"><b>$name</b></p>}{<br>
+                            &emsp;&emsp;font-size:<p class="comment"><b>$size</b></p>);<br>
+                            &emsp;}<br>
+                        }
+                    </code>
+                </td>
+            </tbody>
+        </table>
+        <h1>Sleep Problems -- the Basics Understanding Sleep Problems -- The Basics</h1>
+        <h2>Basics</h2>
+        <p>Light and exercise "reset" the clock and can move it forward or backward. Abnormalities related to this clock are called circadian rhythm disorders ("circa" means "about," and "dies" means "day").<br>
+            Circadian rhythm disorders include jet lag, adjustments to shift work, delayed sleep phase syndrome (you fall asleep and wake up too late), and advanced sleep phase syndrome (you fall asleep and wake up too early). 
+        </p>
+        <h2>Insomnia </h2>
+        <p>People who have insomnia don't feel as if they get enough sleep at night. They may have trouble falling asleep or may wake up frequently during the night or early in the morning. 
+            <br>
+            Insomnia has many possible causes, including stress, anxiety, depression, poor sleep habits, circadian rhythm disorders (such as jet lag), and taking certain medications.
+        </p>
+        <h2>Snoring </h2>
+        <p>
+            Snoring can be a problem simply because of the noise it causes. It may also be a marker of a more serious sleep problem called sleep apnea.
+        </p>
+        <h2>Sleep Apnea </h2>
+        <p>Sleep apnea occurs when the upper airway becomes completely or partially blocked, interrupting regular breathing for short periods of time -- which then wakes you up. It can cause severe daytime sleepiness. If left untreated, severe sleep apnea may be associated with high blood pressure and the risk of stroke and heart attack. </p>
+        <h2>Pregnancy and Sleep </h2>
+        <ul>
+            <li>Women often experience sleepless nights and daytime fatigue in the first and third trimesters of their pregnancy. During the first trimester, frequent trips to the bathroom and morning sickness may disrupt sleep.  </li>
+            <li>Later in pregnancy, vivid dreams and physical discomfort may prevent deep sleep. After delivery, the new baby's care or the mother's postpartum depression may interrupt sleep. </li>
+        </ul>
+        <h2>Narcolepsy </h2>
+        <p>Narcolepsy is a brain disorder that causes excessive daytime sleepiness. There is sometimes a genetic component, but most patients have no family history of the problem. </p>
+        <h2>Restless Legs Syndrome </h2>
+        <p>In people who have restless legs syndrome, discomfort in the legs and feet peaks during the evening and night. They feel an urge to move their legs and feet to get temporary relief, often with excessive, rhythmic, or cyclic leg movements during sleep. </p>
+        <h2>Nightmares </h2>
+        <p>Nightmares are frightening dreams that arise during REM sleep. </p>
+        <h2>Night Terrors and Sleepwalking </h2>
+        <p>
+            Both night terrors and sleepwalking arise during NREM sleep and occur most often in children between the ages of 3 and 5 years old. A night terror can be dramatic: Your child may wake up screaming, but unable to explain the fear. Sometimes children who have night terrors remember a frightening image, but often they remember nothing. Night terrors are often more frightening for parents than for their child.
+            <br>Sleepwalkers can perform a range of activities -- some potentially dangerous, like leaving the house -- while they continue to sleep. 
+        </p>
+        <h2>What Causes Sleep Disorders? </h2>
+        <ol>
+            <li>Insomnia
+                <br>
+                <ul>
+                    <li>Insomnia may be temporary and stem from a simple cause, such as jet lag.  </li>
+                    <li>Short-term insomnia may also be caused by an illness, a stressful event, or drinking too much coffee, for example. </li>
+                    <li>Long-term insomnia may be caused by stress, depression, or anxiety. </li>
+                    <li>People can also become conditioned to insomnia: They associate bedtime with difficulty. </li>
+                </ul>
+            </li>
+            <li>Snoring and Sleep Apnea: When you fall asleep, many muscles in your body relax. If muscles in the throat relax too much, your breathing may be blocked and you may snore. </li>
+            <li>Pregnancy and Sleep:<br>
+                <ul>
+                    <li>Fatigue during the first trimester of pregnancy is likely caused by changing levels of hormones, such as progesterone.  </li>
+                    <li>Toward the end of pregnancy, some women find it difficult to sleep because of the uncomfortable size of their abdomen.  </li>
+                    <li>Some women are too excited, anxious, or worried about becoming mothers to sleep well.  </li>
+                    <li>Other women who are pregnant complain that vivid dreams prevent them from getting restful sleep. Sleep apnea, especially if it's severe and causes your blood oxygen level to drop during sleep, is a risk to the fetus. </li>
+                </ul>
+            </li>
+            <li>Narcolepsy: The cause of narcolepsy is not clear. </li>
+            <li>Nightmares and Night Terrors: Nightmares can be triggered by a frightening or stressful event, a fever or illness, or use of some medications or alcohol. </li>
+        </ol>
+        <h1>How to Resolve a Lack of Deep Sleep </h1>
+        <h2>What Is Deep Sleep? </h2>
+        <p>Deep sleep is slow-wave sleep. It gets this name from the slow brain waves, called delta waves, that the brain produces during this time. </p>
+        <h2>How Much Deep Sleep Do You Need? </h2>
+        <p>People of different ages spend different amounts of time in deep sleep. Children spend more time in deep sleep than adults.  </p>
+        <ul>
+            <li>School-aged kids and teens need to spend 20-25% of their sleep time in deep sleep.</li>
+            <li>Adults should spend about 16-20% of their sleep time in deep sleep.</li>
+        </ul>
+        <p>Men tend to have a much sharper decrease in deep sleep than women as they age. </p>
+        <h2>Change Behaviors and Environment </h2>
+        <div class="box">
+            <div class="innerBox">
+                <div class="boxHead"></div>
+                <div class="box Body">
+                    a
+                </div>
+            </div>
+            <div class="innerBox">
+                <div class="boxHead"></div>
+                <div class="box Body">
+                    b
+                </div>
+            </div>
+        </div>
+        <!--Ends week 21 body-->
+        <footer>
+            <p>Thinking on footer <i class="fas fa-copyright"></i>
+                <i class="fas fa-copyright fa-sm"></i>
+                <i class="fas fa-copyright fa-4x"></i></p>
+            <!--Aria label used for accesibility-->
+            <a href="https://www.google.com" target="_blank"
+            aria-label="Google"><i class="fab fa-google"></i></p></a>
+            <!--anchors targets
+            _slef=same page,
+            _blank=new tab,
+            _top,_parent-->
+        </footer>
+    </body>
+</html>
