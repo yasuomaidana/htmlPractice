@@ -54,8 +54,24 @@ figcaption{
 }
 .box{
     background-color: rgb(195, 181, 240);
+    width: 100%;
+    text-align: center;
+    border-radius: 5em;    
+    
 }
 .innerBox{
     display: inline-block;
     width: 45%;
+    vertical-align: top;
+}
+.boxHead{
+    text-align: center;
+    background-color: rgb(112, 86, 155);
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    border-radius: 3em;
+    
+}
+.boxBody{
+    text-align: left;
 }
