@@ -93,6 +93,101 @@
             <li class="lineAns">Developers</li>
             <li class="lineAns">Mailing list</li>
         </ul>
+        <h2>What is a Maven artifact? </h2>
+        <p>An artifact is a file, usually a JAR that gets deployed to a Maven repository. A Maven build produces one or more artifacts, such as a compiled JAR and “sources” JAR. </p>
+        <h2>What is a Maven build lifecycle? </h2>
+        <p>A build lifecycle is a well-defined sequence of phases. It defines the order in which the goals are to be executed. Each build phase consists of a sequence of goals. </p>
+        <h2>Name the 3 build lifecycles of Maven </h2>
+        <ul>
+            <li class="lineAns">Clean: cleans up artifacts created by prior builds</li>
+            <li class="lineAns">Default (or build): is used to build the application</li>
+            <li class="lineAns">Site: generates site documentation for the project</li>
+        </ul>
+        <h2>What is the command to quickly build your Maven site? </h2>
+        <code class="codeLine">mvn site </code>
+        <h2>What would the command mvn clean do? </h2>
+        <p>This command removes the target directory with all the build data before staring the build process. </p>
+        <h2>What are the phases of a Maven build lifecycle? </h2>
+        <ul>
+            <li class="lineAns">Validate</span></li>
+            <li class="lineAns">Compile</span></li>
+            <li class="lineAns">Test</span></li>
+            <li class="lineAns">Package</span></li>
+            <li class="lineAns">Integration Test</span></li>
+            <li class="lineAns">Verify</span></li>
+            <li class="lineAns">Install</span></li>
+            <li class="lineAns">Deploy</span></li>
+        </ul>
+        <h2>What is a goal in Maven terminology? </h2>
+        <p>A goal represents a specific task which contributes to the building and managing of a project. It may be bound to zero or more build phases. </p>
+        <h2>What phases does clean lifecycle consists? </h2>
+        <ol>
+            <li>Pre-clean </li>
+            <li>Clean </li>
+            <li>Post-clean </li>
+        </ol>
+        
+        <p><strong>What phases does a site Lifecyle consists?</strong> </p>
+        <ul>
+        <li>Pre-site </li>
+        <li>Site </li>
+        <li>Post-site </li>
+        <li>Site-deploy </li>
+        </ul>
+        <p><strong>What is a Maven repository?</strong> </p>
+        <p>A repository is a place i.e. directory where all the project jars, library jar, plugins are stored and can be used by maven. </p>
+        <p><strong>What are the types of Maven repositories?</strong> </p>
+        <ul>
+        <li>Local </li>
+        <li>Central </li>
+        <li>Remote </li>
+        </ul>
+        <p><strong>What is the default location for your local repository?</strong> </p>
+        <p>~/m2./repository </p>
+        <p><strong>What is build profile?</strong> </p>
+        <p>A build profile is a set of configuration values which can be used to set or override default values of Maven build. </p>
+        <p><strong>What are different types of build profiles?</strong> </p>
+        <ul>
+        <li>Per project </li>
+        <li>Per user </li>
+        <li>Global </li>
+        </ul>
+        <p><strong>What are the types of Maven plugins?</strong> </p>
+        <ul>
+        <li>Build plugins </li>
+        </ul>
+        <ul>
+        <li>Reporting plugins </li>
+        </ul>
+        <p><strong>Why are Maven plugins used?</strong> </p>
+        <ul>
+        <li>Create  </li>
+        </ul>
+        <ul>
+        <li>Jar file </li>
+        <li>War file </li>
+        </ul>
+        <ul>
+        <li>Compile code files </li>
+        <li>Unit testing of code </li>
+        <li>Create project documentation </li>
+        <li>Create project reports </li>
+        </ul>
+        <p><strong>What is archetype?</strong> </p>
+        <p>It is a maven plugin whose task is to create a project structure per its template. </p>
+        <p><strong>What is dependency scope? Name all the dependency scope</strong> </p>
+        <p>Dependency scope includes dependencies as per the current stage of the build. </p>
+        <p>Scopes: </p>
+        <ul>
+        <li>Compile </li>
+        </ul>
+        <ul>
+        <li>Provide </li>
+        <li>Runtime </li>
+        <li>Test </li>
+        <li>System </li>
+        <li>Import </li>
+        </ul>
     </body>
     <footer>
         <p>Thinking on footer <i class="fas fa-copyright"></i>
