@@ -49,6 +49,9 @@ td code{
     padding: 1%;
     border-radius: 10%;
 }
+figure{
+    width: min-content;
+}
 figcaption{
     text-align: center;
 }
@@ -57,7 +60,6 @@ figcaption{
     width: 100%;
     text-align: center;
     border-radius: 5em;    
-    
 }
 .innerBox{
     display: inline-block;
@@ -89,4 +91,77 @@ tr td{
     padding: 0.5em;
     border-radius: 1em;
     background-color: rgb(195, 181, 240);
+}
+pre{
+    background-color:rgb(195, 181, 240);
+    border-radius: 2em;
+    padding: 1em;
+    margin: 0 auto;
+    width: fit-content;
+    display: inline-block;
+}
+.hljs-annotation{
+    color: rgb(34, 139, 139);
+}
+.hljs-function{
+    color: rgb(85, 41, 228)
+}
+.hljs-keyword{
+    font-weight:bold;
+    color: rgb(184, 41, 228)
+}
+.hljs-title{
+    font-style: italic;
+    font-weight: bolder;
+}
+.hljs-params{
+    color:rgb(33, 78, 223);
+}
+.hljs-string{
+    color:rgb(76, 112, 3);
+}
+.mBox{
+    display: inline;
+    margin: 2em;
+}
+.center{
+    width: fit-content;
+    margin: 0 auto;
+}
+.vBox{
+    display: inline-grid;
+    margin: 0 2em;
+    vertical-align: top;
+}
+.vBox div{
+    margin: 0 auto;
+    width: min-content;
+}
+.code-caption{
+    margin: 0 auto;
+}
+.code-caption pre{
+    margin-top: 1em;
+    margin-bottom: 0em;
+    display: block;
+    
+}
+.code-caption p{
+    margin: 0 auto;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.fixClear::after{
+    content: ".";
+    visibility: hidden;
+    display: block;
+    clear:both;
+}
+.center figure{
+    display: inline-block;
+    vertical-align: top;
 }

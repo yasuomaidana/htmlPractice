@@ -126,68 +126,147 @@
             <li>Clean </li>
             <li>Post-clean </li>
         </ol>
-        
-        <p><strong>What phases does a site Lifecyle consists?</strong> </p>
+        <h2>What phases does a site Lifecyle consists?</h2>
         <ul>
-        <li>Pre-site </li>
-        <li>Site </li>
-        <li>Post-site </li>
-        <li>Site-deploy </li>
+            <li>Pre-site </li>
+            <li>Site </li>
+            <li>Post-site </li>
+            <li>Site-deploy </li>
         </ul>
-        <p><strong>What is a Maven repository?</strong> </p>
+        <h2>What is a Maven repository?</h2>
         <p>A repository is a place i.e. directory where all the project jars, library jar, plugins are stored and can be used by maven. </p>
-        <p><strong>What are the types of Maven repositories?</strong> </p>
+        <h2>What are the types of Maven repositories?</h2>
         <ul>
-        <li>Local </li>
-        <li>Central </li>
-        <li>Remote </li>
+            <li class="lineAns">Local </li>
+            <li class="lineAns">Central </li>
+            <li class="lineAns">Remote </li>
         </ul>
-        <p><strong>What is the default location for your local repository?</strong> </p>
-        <p>~/m2./repository </p>
-        <p><strong>What is build profile?</strong> </p>
+        <h2>What is the default location for your local repository?</h2>
+        <code class="codeLine">~/m2./repository </code>
+        <h2>What is build profile?</h2>
         <p>A build profile is a set of configuration values which can be used to set or override default values of Maven build. </p>
-        <p><strong>What are different types of build profiles?</strong> </p>
+        <h2>What are different types of build profiles?</h2>
         <ul>
-        <li>Per project </li>
-        <li>Per user </li>
-        <li>Global </li>
+            <li class="lineAns">Per project </li>
+            <li class="lineAns">Per user </li>
+            <li class="lineAns">Global </li>
         </ul>
-        <p><strong>What are the types of Maven plugins?</strong> </p>
+        <h2>What are the types of Maven plugins?</h2>
         <ul>
-        <li>Build plugins </li>
+            <li class="lineAns">Build plugins </li>
+            <li class="lineAns">Reporting plugins </li>
         </ul>
+        <h2>Why are Maven plugins used?</h2>
         <ul>
-        <li>Reporting plugins </li>
+            <li>Create
+                <ul>
+                    <li>Jar file </li>
+                    <li>War file </li>
+                </ul>
+            </li>
+            <li>Compile code files </li>
+            <li>Unit testing of code </li>
+            <li>Create project documentation </li>
+            <li>Create project reports </li>
         </ul>
-        <p><strong>Why are Maven plugins used?</strong> </p>
-        <ul>
-        <li>Create  </li>
-        </ul>
-        <ul>
-        <li>Jar file </li>
-        <li>War file </li>
-        </ul>
-        <ul>
-        <li>Compile code files </li>
-        <li>Unit testing of code </li>
-        <li>Create project documentation </li>
-        <li>Create project reports </li>
-        </ul>
-        <p><strong>What is archetype?</strong> </p>
+        <h2>What is archetype?</h2>
         <p>It is a maven plugin whose task is to create a project structure per its template. </p>
-        <p><strong>What is dependency scope? Name all the dependency scope</strong> </p>
+        <h2>What is dependency scope? Name all the dependency scope</h2>
         <p>Dependency scope includes dependencies as per the current stage of the build. </p>
         <p>Scopes: </p>
         <ul>
-        <li>Compile </li>
+            <li class="lineAns">Compile </li>
+            <li class="lineAns">Provide </li>
+            <li class="lineAns">Runtime </li>
+            <li class="lineAns">Test </li>
+            <li class="lineAns">System </li>
+            <li class="lineAns">Import </li>
         </ul>
+        <h1>Java Annotations &lsquo;@&rsquo;&nbsp;</h1>
+        <p><a href="https://stackoverflow.com/questions/31822020/in-java-what-does-the-symbol-mean/31822268">Link 1</a>,<a href="https://stackoverflow.com/questions/2036980/annotation-comment">Link 2</a>,<a href="https://docs.oracle.com/javase/tutorial/java/annotations/">Link 3</a>,<a href="https://docs.oracle.com/javase/tutorial/java/annotations/basics.html">Link 4</a>&nbsp;</p>
+        <p>The @ symbol denotes a Java Annotation. What a Java annotation does, is that it adds a special attribute to the variable, method, class, interface, or other language elements. (This can be configured when you declare the annotation) When you add an annotation to something, other parts of the program can check whether something has an annotation or not. It then can use this information to do whatever stuff they need.&nbsp;</p>
+        <p>An&nbsp;<a href="http://java.sun.com/j2se/1.5.0/docs/guide/language/annotations.html">annotation</a>&nbsp;is a&nbsp;<strong><em>special construct</em></strong>&nbsp;introduced with java 1.5. An annotation adds some meta information to a java class, method or variable. This meta information can be evaluated at compile time (e.g.&nbsp;for generating some extra code with&nbsp;<a href="http://java.sun.com/j2se/1.5.0/docs/guide/apt/">apt</a>)&nbsp;or&nbsp;at runtime (e.g.&nbsp;to match a class to a database table).&nbsp;</p>
+        <p><em>Annotations</em>, a form of metadata,&nbsp;<strong><em>provide data about a program that is not part of the program itself</em></strong>. Annotations have no direct effect on the operation of the code they annotate.&nbsp;</p>
+        <p>Annotations have a number of uses, among them:&nbsp;</p>
         <ul>
-        <li>Provide </li>
-        <li>Runtime </li>
-        <li>Test </li>
-        <li>System </li>
-        <li>Import </li>
+        <li><strong>Information for the compiler</strong>&nbsp;&mdash; Annotations can be used by the compiler to detect errors or suppress warnings.&nbsp;</li>
+        <li><strong>Compile-time and deployment-time processing</strong>&nbsp;&mdash; Software tools can process annotation information to generate code, XML files, and so forth.&nbsp;</li>
+        <li><strong>Runtime processing</strong>&nbsp;&mdash; Some annotations are available to be examined at runtime.&nbsp;</li>
         </ul>
+        <p>In its simplest form, an annotation looks like the following:&nbsp;</p>
+        <!--Inserting inline java code-->
+        <pre>
+<code><span class="hljs-annotation">@Entity <p class="comment">//This is an annotation</p></span></code></pre>
+        <p>The at sign character&nbsp;<strong><em>(@) indicates to the compiler that what follows is an annotation</em></strong>. In the following example, the annotation's name is Override:&nbsp;</p>
+        <div class="center">
+        <pre>
+<code><span class="hljs-annotation">@Override</span> 
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">mySuperMethod</span><span class="hljs-params">()</span> </span>{
+    ... 
+}</code></pre>
+        </div>
+        <p>The annotation&nbsp;<strong><em>can include elements</em></strong>, which&nbsp;<strong><em>can be named or unnamed</em></strong>, and there are values for those elements:&nbsp;</p>
+        <div class="center">
+            <div class="mBox">
+                <pre>
+<code><span class="hljs-annotation">@Author</span>( 
+name = <span class="hljs-string">"Benjamin Franklin"</span>, 
+date = <span class="hljs-string">"3/27/2003"</span> 
+)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> </span>{
+    ...
+}</code></pre>
+            </div>
+            <div class="vBox">
+                <div>
+                    <pre>
+<code><span class="hljs-annotation">@SuppressWarnings</span>(value = <span class="hljs-string">"unchecked"</span>) 
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">myMethod</span><span class="hljs-params">()</span> </span>{
+    ... 
+}</code></pre>
+                </div>
+                <div class="code-caption">
+                            <pre>
+<code><span class="hljs-annotation">@SuppressWarnings</span>(<span class="hljs-string">"unchecked"</span>) 
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">myMethod</span><span class="hljs-params">()</span> </span>{
+    ... 
+}</code></pre>
+                        <p>If there is&nbsp;<strong><em>just one element named value, then the name can be omitted</em></strong></p>      
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="center">
+            <figure>
+                <div>
+                    <pre><code><span class="hljs-annotation">@Author</span>(name = <span class="hljs-string">"Jane Doe"</span>) 
+<span class="hljs-annotation">@EBook</span> 
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> </span>{
+    ...
+}</code></pre>
+                    </div>
+                <figcaption><p>It is also possible to use multiple annotations on the same declaration&nbsp;</p></figcaption>
+            </figure>
+            <figure>
+                <div>
+                    <pre><code><span class="hljs-annotation">@Author</span>(name = <span class="hljs-string">"Jane Doe"</span>) 
+<span class="hljs-annotation">@Author</span>(name = <span class="hljs-string">"John Smith"</span>) 
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span> </span>{
+    ...
+}</code></pre>
+                </div>
+                <figcaption><p>If the annotations have the same type, then this is called a repeating annotation&nbsp;</p></figcaption>
+            </figure>
+        </div>
+        <ul>
+            <li>The annotation type can be one of the types that are defined in the&nbsp;java.lang&nbsp;or&nbsp;java.lang.annotation&nbsp;packages of the Java SE API.&nbsp;&nbsp;</li>
+            <li>In the previous examples, Override and&nbsp;SuppressWarnings&nbsp;are&nbsp;<a href="https://docs.oracle.com/javase/tutorial/java/annotations/predefined.html">predefined Java annotations</a>.&nbsp;&nbsp;</li>
+            <li>It is also possible to define your own annotation type.&nbsp;&nbsp;</li>
+            <li>The Author and&nbsp;Ebook&nbsp;annotations in the previous example are custom annotation types.&nbsp;</li>
+        </ul>
+        <p>Annotations do not directly affect program semantics, but they do affect the way programs are treated by tools and libraries, which can in turn affect the semantics of the running program. Annotations can be read from source files, class files, or reflectively at run time.&nbsp;</p>
+        <p>Annotations complement&nbsp;javadoc&nbsp;tags. In general, if the markup is intended to affect or produce documentation, it should probably be a&nbsp;javadoc&nbsp;tag; otherwise, it should be an annotation.&nbsp;</p>
     </body>
     <footer>
         <p>Thinking on footer <i class="fas fa-copyright"></i>
