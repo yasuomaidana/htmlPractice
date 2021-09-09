@@ -197,7 +197,7 @@
         <!--Inserting inline java code-->
         <pre>
 <code><span class="hljs-annotation">@Entity <p class="comment">//This is an annotation</p></span></code></pre>
-        <p>The at sign character&nbsp;<strong><em>(@) indicates to the compiler that what follows is an annotation</em></strong>. In the following example, the annotation's name is Override:&nbsp;</p>
+        <p>The at sign character&nbsp;<strong><em>(@) indicates to the compiler that what follows is an annotation</em></strong>. <br>In the following example, the annotation's name is Override:&nbsp;</p>
         <div class="center">
         <pre>
 <code><span class="hljs-annotation">@Override</span> 
@@ -205,6 +205,7 @@
     ... 
 }</code></pre>
         </div>
+        <hr>
         <p>The annotation&nbsp;<strong><em>can include elements</em></strong>, which&nbsp;<strong><em>can be named or unnamed</em></strong>, and there are values for those elements:&nbsp;</p>
         <div class="center">
             <div class="mBox">
@@ -267,6 +268,126 @@ date = <span class="hljs-string">"3/27/2003"</span>
         </ul>
         <p>Annotations do not directly affect program semantics, but they do affect the way programs are treated by tools and libraries, which can in turn affect the semantics of the running program. Annotations can be read from source files, class files, or reflectively at run time.&nbsp;</p>
         <p>Annotations complement&nbsp;javadoc&nbsp;tags. In general, if the markup is intended to affect or produce documentation, it should probably be a&nbsp;javadoc&nbsp;tag; otherwise, it should be an annotation.&nbsp;</p>
+        <h1>Declaring an Annotation Type</h1>
+        <p>Annotation type declarations are similar to normal interface declarations.&nbsp;</p>
+        <ul>
+            <li>An at-sign (@) precedes the&nbsp;interfacekeyword. Each method declaration defines an element of the annotation type.&nbsp;</li>
+            <li>Method declarations&nbsp;<strong>must not have any parameters or a throws clause</strong>.&nbsp;</li>
+            <li>Return types are restricted to primitives, String, Class,&nbsp;enums, annotations, and arrays of the preceding types. Methods can have default values.</li>
+            <li>Once an annotation type is defined, you can use it to annotate declarations.&nbsp;</li>
+            <li><strong>An annotation is a special kind of modifier</strong>, and can be used anywhere that other modifiers (such as&nbsp;public,&nbsp;static, or&nbsp;final) can be used.&nbsp;</li>
+            <li>By convention, annotations precede other modifiers. Annotations consist of an at-sign (@) followed by an annotation type and a parenthesized list of element-value pairs.&nbsp;</li>
+            <li>The values must be compile-time constants.</li>
+            <li>An annotation type with no elements is termed a&nbsp;<em>marker</em>&nbsp;annotation type</li>
+            <li>It is permissible to omit the parentheses in marker annotations</li>
+            <li>In annotations with a single element, the element should be named&nbsp;value</li>
+        </ul>
+        <p><strong>Many annotations replace comments in code.</strong></p>
+        <p>Suppose that a software group traditionally starts the body of every class with comments providing important information:</p>
+        <table>
+            <thead>
+                <tr><td colspan="2">VS</td></tr>
+                <tr><td>Traditional comments</td><td>Using decorators</td></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="center">
+                            <pre><code>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Generation3List</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Generation2List</span> </span>{ 
+    <span class="comment">// Author: John Doe </span>
+    <span class="comment">// Date: 3/17/2002 </span>
+    <span class="comment">// Current revision: 6 </span>
+    <span class="comment">// Last modified: 4/12/2004 </span>
+    <span class="comment">// By: Jane Doe </span>
+    <span class="comment">// Reviewers: Alice, Bill, Cindy </span>
+    <span class="comment">// class code goes here </span>
+}</code></pre>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <pre><code>
+<span class="hljs-annotation">@interface</span> ClassPreamble { 
+    <span class="hljs-function">String <span class="hljs-title">author</span><span class="hljs-params">()</span></span>; 
+    <span class="hljs-function">String <span class="hljs-title">date</span><span class="hljs-params">()</span></span>; 
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">currentRevision</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> 1</span>; 
+    <span class="hljs-function">String <span class="hljs-title">lastModified</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> "N/A"</span>; 
+    <span class="hljs-function">String <span class="hljs-title">lastModifiedBy</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> "N/A"</span>; 
+    <span class="comment">// Note use of array </span>
+    <span class="hljs-function">String[] <span class="hljs-title">reviewers</span>()</span>; 
+} 
+                            
+<span class="hljs-annotation">@ClassPreamble</span> ( 
+    author = <span class="hljs-string">"John Doe"</span>, 
+    date = <span class="hljs-string">"3/17/2002"</span>, 
+    currentRevision = <span class="hljs-number">6</span>, 
+    lastModified = <span class="hljs-string">"4/12/2004"</span>, 
+    lastModifiedBy = <span class="hljs-string">"Jane Doe"</span>, 
+    <span class="comment">// Note array notation </span>
+    reviewers = {<span class="hljs-string">"Alice"</span>, <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Cindy"</span>} 
+) 
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Generation3List</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Generation2List</span> </span>{ 
+    <span class="comment">// class code goes here </span>
+} 
+                            </code></pre>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>To add this same metadata with an annotation, you must first define the&nbsp;<em>annotation type</em>.</p>
+        <p>The annotation type definition looks similar to an interface definition where the keyword interface is preceded by the at sign (@) (@ = AT, as in annotation type). Annotation types are a form of&nbsp;<em>interface</em></p>
+        <p>The body of the previous annotation definition contains&nbsp;<em>annotation type element</em>&nbsp;declarations, which look a lot like methods. Note that they can define optional default values.</p>
+        <p>After the annotation type is defined, you can use annotations of that type, with the values filled in, like this:</p>
+        <blockquote>
+            <p><strong>Note:</strong>&nbsp;To make the information in @ClassPreamble appear in Javadoc-generated documentation, you must annotate the @ClassPreamble definition with the @Documented annotation:</p>
+            <div class="center">
+            <pre><code><span class="comment">// import this to use @Documented </span>
+<span class="hljs-keyword">import</span> java.lang.annotation.*; 
+<span class="hljs-annotation">@Documented</span> 
+<span class="hljs-annotation">@interface</span> ClassPreamble { 
+    <span class="comment">// Annotation element definitions </span>
+}</code></pre></div>
+        </blockquote>
+        <h1>Predefined Annotation Types</h1>
+        <p>A set of annotation types are predefined in the Java SE API. Some annotation types are used by the Java compiler, and some apply to other annotations.</p>
+        <hr>
+        <div class="fixClear">
+        <div class="right">
+            <pre><code>    <span class="comment">// Javadoc comment follows</span>
+    <span class="comment">/**
+        * <span class="hljs-doctag">@deprecated</span>     
+        * explanation of why it was deprecated     
+    */</span>   
+    <span class="hljs-annotation">@Deprecated</span>    
+    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deprecatedMethod</span><span class="hljs-params">()</span></span>{
+    }
+}</code></pre>
+        </div>
+        <h2>@Deprecated</h2>
+        <p><strong><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html">@Deprecated</a></strong>&nbsp;annotation indicates that the marked element is&nbsp;<em>deprecated</em>&nbsp;and should no longer be used. The compiler generates a warning whenever a program uses a method, class, or field with the&nbsp;@Deprecated&nbsp;annotation. When an element is deprecated, it should also be documented using the Javadoc&nbsp;@deprecated&nbsp;tag, as shown in the following example. The use of the at sign (@) in both Javadoc comments and in annotations is not coincidental: they are related conceptually. Also, note that the Javadoc tag starts with a lowercase&nbsp;<em>d</em>&nbsp;and the annotation starts with an uppercase&nbsp;<em>D</em>.</p>
+        </div>
+        <hr>
+        <h2>@Override</h2>
+        <p><strong><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Override.html">@Override</a></strong>&nbsp;annotation informs the compiler that the element is meant to override an element declared in a superclass. Overriding methods will be discussed in&nbsp;<a href="https://docs.oracle.com/javase/tutorial/java/IandI/index.html">Interfaces and Inheritance</a>.</p>
+        <p>While it is not required to use this annotation when overriding a method,&nbsp;<strong>it helps to prevent errors</strong>. If a method marked with&nbsp;@Override&nbsp;fails to correctly override a method in one of its&nbsp;superclasses, the compiler generates an error.</p>
+        <h2>@SuppressWarnings</h2>
+        <p><strong><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html">@SuppressWarnings(&ldquo;Specific Warning&rdquo;)</a></strong>&nbsp;annotation tells the compiler to suppress specific warnings that it would otherwise generate.&nbsp;</p>
+        <p>Every compiler warning belongs to a category. The Java Language Specification lists two categories:&nbsp;</p>
+        <ul>
+            <li><strong>deprecation</strong> warning can occur when interfacing with legacy code written before the advent of&nbsp;<a href="https://docs.oracle.com/javase/tutorial/java/generics/index.html">generics</a>.</li>
+            <li><strong>unchecked</strong></li>
+        </ul>
+        <p>To suppress multiple categories of warnings, use the following syntax:</p>
+        <pre><code class="has-line-data" data-line-start="1" data-line-end="3" class="language-java"><span class="hljs-annotation">@SuppressWarnings</span>({<span class="hljs-string">"unchecked"</span>, <span class="hljs-string">"deprecation"</span>})</code></pre>
+        <hr>
+        <h2>@SafeVarargs</h2>
+        <p><strong><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SafeVarargs.html">@SafeVarargs</a></strong>&nbsp;annotation, when applied to a method or constructor, asserts that the code does not perform potentially unsafe operations on its&nbsp;varargs&nbsp;parameter. When this annotation type is used, unchecked warnings relating to&nbsp;varargs&nbsp;usage are suppressed.</p>
+        <hr>
+        <h2>@FunctionalInterface</h2>
+        <p><strong><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html">@FunctionalInterface</a></strong>&nbsp;annotation, introduced in Java SE 8, indicates that the type declaration is intended to be a functional interface, as defined by the Java Language Specification.</p>
+        <hr>
     </body>
     <footer>
         <p>Thinking on footer <i class="fas fa-copyright"></i>
