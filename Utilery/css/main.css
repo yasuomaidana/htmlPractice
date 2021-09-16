@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+body{
+    background-color: #dac99e;
+}
+header{
+    background-color: #42332c;
+    height: 20vh;
+    padding: 1em 2em;
+    color: #f3f3f1;
+    text-align: center;
+}
+header div{
+    display: inline-block;
+    aspect-ratio: 1/1;
+    height: 100%;
+    border-style: dashed;
+    border-radius: 50%;
+    border-width: .5em;
+    border-color: #dac99e;
+    overflow: hidden;
+}
+header h1{
+    width: 70%;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: .5em;
+}
+img {
+    height: 9em;
+    object-fit:cover;
+    margin: -40%;
+}
