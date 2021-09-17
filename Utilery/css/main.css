@@ -33,3 +33,6 @@ img {
     object-fit:cover;
     margin: -40%;
 }
+nav ul {
+    list-style-image: url('https://interactive-examples.mdn.mozilla.net/media/examples/rocket.svg');
+}
