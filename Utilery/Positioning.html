@@ -7,12 +7,70 @@
     </head>
     <body>
         <header>
-            <div><img src="img/eeve with glasses.jpg"></div><h1>HTML, CSS and Javascript Practice</h1>
+            <div><img class="headerImg" src="img/eeve with glasses.jpg"></div><h1>HTML, CSS and Javascript Practice</h1>
+            <span class="clear"></span>
         </header>
         <nav>
-            <li><a href="./index.html">Home</a></li>
-            <li>Positioning Content</li>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li>Positioning Content</li>
+            </ul>
         </nav>
-        <footer>b</footer>
+        <main>
+            <div>
+                <h1>Positioning</h1>
+                <p>In this page we are going to positionate content using different techniques</p>
+            </div>
+            <section id="floats">
+                <h2>Positioning using floating</h2>
+                <div>
+                    <h3>Left float</h3>
+                    <figure>
+                        <img class="left "src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/133.png"
+                        alt="plain Eevee">
+                        <p>This is an example of a paragraph with a floated text</p>
+                        You can write whatever you want, and it will appear at the right part of your image.
+                        The good part about is that the following thing you put will appear in a <q>sticky</q> mode.
+                        <br>
+                        <hr>
+                        For example, you can add &lt;hr&gt; tag and it will appear in the same "sticky mode", of course if it is still any space avaiable.
+                        <figcaption>This is figcaption text.</figcaption>
+                        <div>This is a div text.</div>
+                        <span class="clearer"></span>
+                        <div class="full">Another div text, as you can see, since the text area already surprassed the image the following content appears as always.</div>
+                    </figure>
+                </div>
+                <div>
+                    <h3>Right float</h3>
+                    <figure>
+                        <img class="right" src="https://c.tenor.com/Jp-zoCKp2McAAAAi/eevee-pokemon.gif"
+                        alt="Sleepy eeve">
+                        The right float works as the left float, but the difference relies on the side.
+                        <br>
+                        Here we used a clearer to ensure that the following content fill all the box space. <br>
+                        Before end figure
+                        <br>
+                    </figure>
+                    <span class="clearer"></span>
+                    After finishing figure
+                </div>
+                <div>
+                    <h3>Convining floats</h3>
+                    We can also convine the floats (left and right), to show the content into two spaces.
+                    <br>
+                    <hr>
+                    <div class="full marginR">
+                        <header class="rounded">Pseudo Header</header>
+                        <section class="left sepia">Left Section</section><section class="right">Right Section</section>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <br>
+            Done by Yasuo Maidana
+            <br>
+            <br>
+        </footer>
     </body>
 </html>
