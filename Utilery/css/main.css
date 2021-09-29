@@ -2,23 +2,33 @@
     box-sizing: border-box;
     margin: 0px;
 }
-body{
+body,html{
     background-color: #dac99e;
     height: 100%;
 }
 header{
     user-select: none;
     background-color: #42332c;
-    height: 20%;
+    height: 18%;
     padding: 1em 2em;
     color: #f3f3f1;
     text-align: center;
 }
-
+.navbar{
+    height: 2%;
+    color:#f3f3f1;
+    user-select: none;
+    background-color: #D38C00;
+}
+main{
+    display: block;
+    height: 70%;
+    overflow:scroll;
+}
 footer{
     background-color: #040100;
     color:#f3f3f1;
-    height: auto;
+    height: 10%;
     text-align: center;
 }
 header div{
@@ -37,15 +47,23 @@ header h1{
     position: relative;
     transform: translateY(50%);
 }
+
 @media (max-width: 550px) {
     header{
-        height: 7.5%;
+        height: 10%;
     }
     header h1{
         font-size: large;
+        transform: none;
     }
     header div{
-        height: 80px;
+        height: 100%;
+    }
+    main{
+        height: 80%;
+    }
+    figure img{
+        width: 50%;
     }
 }
 .headerImg {
@@ -57,27 +75,17 @@ header h1{
     display: block;
     clear: both;
 }
-nav{
-    height: 10%;
-    color:#f3f3f1;
-    user-select: none;
-    background-color: #D38C00;
-}
-nav ul li{
+.navbar ul li{
     display: inline-block;
     padding: 0px 1em;
     border-left: 6px solid #42332c
 }
-nav ul li a:visited{
+.navbar ul li a:visited{
     color: #dac99e;
 }
-nav ul {
+.navbar ul {
     list-style-image: url('https://interactive-examples.mdn.mozilla.net/media/examples/rocket.svg');
     border-left: 1em white;
-}
-main{
-    overflow:scroll;
-    height: 86vh;
 }
 section div{
     color: #040100;
@@ -88,6 +96,9 @@ section{
     margin-top: 2em;
     margin-left: 1em;
     color: #040100;
+    height: min-content;
+    max-height: 80%;
+    overflow: scroll;
 }
 .left{
     float: left;
@@ -163,4 +174,44 @@ figure img{
     height: 10vh;
     text-align: center;
     padding: 2%;
+}
+input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+label{
+    padding-left: 1em;
+    display: inline-block;
+    cursor:pointer;
+    color: #f3f3f1;
+    width: 100%;
+    background-color: #D38C00;
+}
+
+label::before{
+    content: "\276F";
+    float: right;
+    line-height: 2em;
+    font-weight: bolder;
+    margin-right: 1em;
+    transition: all .5s;
+}
+label:hover{
+    background-color: #673C11;
+}
+input+ label ~ div{
+    opacity: 0;
+    height: 0px;
+    overflow: hidden;
+    transition:ease-in 2s;
+}
+
+input:checked + label ~ div{
+    display: block;
+    height: auto;
+    opacity: 1;
+}
+input:checked + label::before{
+    transform: rotate(90deg);
 }
