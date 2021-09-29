@@ -195,18 +195,20 @@ label::before{
     line-height: 2em;
     font-weight: bolder;
     margin-right: 1em;
-    transition: all .5s;
+    transition: all 2s;
 }
-label:hover{
+input:checked + label{
+    background-color: #42332c;
+}
+label:hover,input:checked + label:hover{
     background-color: #673C11;
 }
 input+ label ~ div{
     opacity: 0;
     height: 0px;
     overflow: hidden;
-    transition:ease-in 2s;
+    transition:all 1s;
 }
-
 input:checked + label ~ div{
     display: block;
     height: auto;
