@@ -217,3 +217,20 @@ input:checked + label ~ div{
 input:checked + label::before{
     transform: rotate(90deg);
 }
+.easyInline{
+    display: inline-block;
+    width: 33%;
+    height: 30vh;
+    background-color: #673C11;
+    color: #dac99e;
+    text-align: center;
+    vertical-align: bottom;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.easyInline img{
+    display: block;
+    max-width: 80%;
+    max-height: 50%;
+    margin: 2em auto;
+}

@@ -93,70 +93,21 @@
             </section>
             <section class="topic" id="blocks">
                 <input type="checkbox" id="topic2">
-                <label class="tab-label" for="topic2"><h2>Positioning using floating</h2></label>
-                <div>
-                    <h3>Left float</h3>
-                    <figure>
-                        <img class="left "src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/133.png"
-                        alt="plain Eevee">
-                        <p>This is an example of a paragraph with a floated text</p>
-                        You can write whatever you want, and it will appear at the right part of your image.
-                        The good part about is that the following thing you put will appear in a <q>sticky</q> mode.
-                        <br>
-                        <hr>
-                        For example, you can add &lt;hr&gt; tag and it will appear in the same "sticky mode", of course if it is still any space avaiable.
-                        <figcaption>This is figcaption text.</figcaption>
-                        <div>This is a div text.</div>
-                        <span class="clearer"></span>
-                        <div class="full">Another div text, as you can see, since the text area already surprassed the image the following content appears as always.</div>
-                    </figure>
-                    <hr>
-                </div>
-                <div>
-                    <h3>Right float</h3>
-                    <figure>
-                        <img class="right" src="https://c.tenor.com/Jp-zoCKp2McAAAAi/eevee-pokemon.gif"
-                        alt="Sleepy eeve">
-                        The right float works as the left float, but the difference relies on the side.
-                        <br>
-                        Here we used a <b>clearer</b> to ensure that the following content fill all the box space. <br>
-                        Before end figure
-                        <br>
-                    </figure>
-                    <span class="clearer"></span>
-                    After finishing figure
-                    <hr>
-                </div>
-                <div>
-                    <h3>Convining floats</h3>
-                    <div class="left width30 full container">
-                        <div class="full marginR">
-                            <header class="rounded">Pseudo Header</header>
-                            <section class="convinedExample left rounded">Left Section</section>
-                            <section class="convinedExample right rounded">Right Section</section>
-                            <span class="clearer"></span>
-                            <footer class="rounded">Pseudo Footer</footer>
+                <label class="tab-label" for="topic2"><h2>Positioning using inline-block</h2></label>
+                <div clas="full">
+                    <div>
+                        <h3>Easy inline block</h3>
+                        <div class="easyInline">
+                            <img src="img/eeve.jpeg">
+                            This is an example of an inline block
+                        </div><div class="easyInline">
+                            <img src="img/eeve.jpeg">
+                            This is an example of an inline block
+                        </div><div class="easyInline">
+                            <img src="img/eeve.jpeg">
+                            This is an example of an inline block, you can see that if the element doesn't fit in the container it is sent down.
                         </div>
                     </div>
-                    <br>
-                    We can also convine the floats (left and right), to show the content into two spaces.
-                    <span class="clearer"></span>
-                    <hr>
-                </div>
-                <div>
-                    <h3>Using floats to make columns</h3>
-                    <div class="right width30 full container">
-                        <header class="rounded">Pseudo Header</header>
-                        <div class="container full">
-                            <section class="triada left rounded sepia">First Section</section>
-                            <section class="triada left rounded sepia">Second Section</section>
-                            <section class="triada left rounded sepia">Third Section</section>
-                        </div>
-                        <footer class="rounded">Pseudo Footer</footer>
-                    </div>
-                    We can use floats to create columns, there are other ways to positionate content
-                    <span class="clearer"></span>
-                    <hr>
                 </div>
             </section>
         </main>
