@@ -1,0 +1,47 @@
+.center{
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+}
+.third{
+    width: 30%;
+    text-align: center;
+}
+.third img{
+    width: 80%;
+}
+.row div{
+    display: inline-block;
+}
+.h-20v{
+    height: 30vh;
+}
+.round{
+    border-radius: 50%;
+    border-style: dashed;
+    border-color: rgba(0, 0, 0, 0);
+}
+.round:hover{
+    border-color: rgba(0, 0, 0, 1);
+}
+.gray{
+    background-color: gray;
+    
+}
+.beige{
+    background-color: beige;
+}
+#shower{
+    margin-bottom: 1em;
+    position: relative;
+}
+#shower div{
+    position: absolute;
+    height: 90%;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#shower div img{
+    height: 100%;
+}
