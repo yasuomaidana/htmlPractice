@@ -113,7 +113,6 @@ figure img{
 }
 .clearer{
     display: block;
-    content: "After container";
     clear:both;
 }
 .full{
@@ -233,4 +232,13 @@ input:checked + label::before{
     max-width: 80%;
     max-height: 50%;
     margin: 2em auto;
+}
+.rela{
+    opacity: .8;
+    margin-right: 2em;
+    border: 0.3em dashed #D38C00;
+
+}
+.box{
+    
 }
